@@ -32,9 +32,11 @@ import org.eclipse.e4.ui.model.application.ui.advanced.MPerspective;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPerspectiveStack;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainerElement;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.swt.widgets.Display;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.rcp.uiservice.IModelioUiService;
+import org.modelio.platform.ui.swt.DarkModeContrastFix;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
@@ -76,6 +78,17 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         final MPerspective switchTo = perspective != null ? perspective : getDefaultPerspective();
         
         stack.setSelectedElement(switchTo);
+
+        // After perspective change, force light surfaces again (new Tree/Table created)
+        final Display display = Display.getCurrent();
+        if (display != null) {
+            display.asyncExec(() -> {
+                for (final org.eclipse.swt.widgets.Shell shell : display.getShells()) {
+                    DarkModeContrastFix.forceLightShell(shell);
+                    DarkModeContrastFix.apply(shell);
+                }
+            });
+        }
         
     }
 

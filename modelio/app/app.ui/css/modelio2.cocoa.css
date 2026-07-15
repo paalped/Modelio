@@ -1,0 +1,50 @@
+/*******************************************************************************
+ * Modelio — macOS (cocoa) theme
+ *
+ * Modelio is designed for a light UI. On modern macOS, Dark Mode can leak
+ * dark panel backgrounds while Modelio still paints dark label colors designed
+ * for light trees → unreadable navigators. Force light surfaces here.
+ *
+ * Use only literal colors — never Eclipse color definitions
+ * (#org-eclipse-ui-...), which NPE in this pure E4 product.
+ ******************************************************************************/
+
+Shell, Composite, Form, ScrolledComposite, Group, TabFolder, SashForm {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+Label {
+	color: #000000;
+}
+
+Text, StyledText {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+Button {
+	color: #000000;
+}
+
+Tree, Table, List {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+CTabFolder {
+	background-color: #FFFFFF;
+	color: #000000;
+	swt-selected-tab-fill: #FFFFFF;
+	swt-unselected-tabs-color: #F0F0F0;
+	swt-outer-keyline-color: #C0C0C0;
+}
+
+CTabItem {
+	color: #000000;
+}
+
+ToolBar, ToolItem {
+	background-color: #FFFFFF;
+	color: #000000;
+}

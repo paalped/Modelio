@@ -103,6 +103,9 @@ public class OsLifeCycleManager {
     @objid ("b46266aa-9b70-4eca-bc39-03ed33589e0f")
     @PostContextCreate
     void postContextCreate(final IEclipseContext context) {
+        // Avoid white-on-white text in dialogs when macOS Dark Mode is on
+        MacAppearanceHelper.forceLightAppearance();
+
         // Modelio start sequence is logged at INFO level
         LogLevel prevLevel = PluginLogger.ensureLogLevel(LogLevel.INFO);
         AppUi.LOG.info("Modelio by modelio.org");

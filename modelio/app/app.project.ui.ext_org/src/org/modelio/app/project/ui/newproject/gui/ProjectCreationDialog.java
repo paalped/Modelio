@@ -34,7 +34,9 @@ import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.platform.project.creation.BasicProjectCreationDataModel;
+import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.dialog.ModelioDialog;
+import org.modelio.platform.ui.swt.DarkModeContrastFix;
 
 /**
  * Project creation wizard dialog.
@@ -77,6 +79,10 @@ public class ProjectCreationDialog extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         this.createButton = createButton(parent, IDialogConstants.OK_ID, AppProjectUiExt.I18N.getString("Create"), false);
         this.cancelButton = createButton(parent, IDialogConstants.CANCEL_ID, AppProjectUiExt.I18N.getString("Cancel"), true);
+        if (DarkModeContrastFix.isNeeded()) {
+            this.createButton.setForeground(UIColor.BLACK);
+            this.cancelButton.setForeground(UIColor.BLACK);
+        }
         updateButtons(true);
         
     }
@@ -276,6 +282,11 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.projectDescriptionText = new Text(this, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
             final GridData gd_descriptionText = new GridData(SWT.FILL, SWT.FILL, true, true);
             this.projectDescriptionText.setLayoutData(gd_descriptionText);
+            if (DarkModeContrastFix.isNeeded()) {
+                descriptionLabel.setForeground(UIColor.BLACK);
+                this.projectDescriptionText.setForeground(UIColor.TEXT_WRITABLE_FG);
+                this.projectDescriptionText.setBackground(UIColor.TEXT_WRITABLE_BG);
+            }
             
         }
 
@@ -287,6 +298,11 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.projectNameText = new Text(this, SWT.BORDER);
             final GridData gd_projectNameText = new GridData(SWT.FILL, SWT.CENTER, true, false);
             this.projectNameText.setLayoutData(gd_projectNameText);
+            if (DarkModeContrastFix.isNeeded()) {
+                projectNameLabel.setForeground(UIColor.BLACK);
+                this.projectNameText.setForeground(UIColor.TEXT_WRITABLE_FG);
+                this.projectNameText.setBackground(UIColor.TEXT_WRITABLE_BG);
+            }
             
         }
 

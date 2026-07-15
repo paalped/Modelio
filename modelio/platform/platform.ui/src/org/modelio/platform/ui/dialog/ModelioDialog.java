@@ -52,6 +52,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.platform.rcp.system.ModelioHelpSystem;
 import org.modelio.platform.ui.plugin.UI;
+import org.modelio.platform.ui.swt.DarkModeContrastFix;
 
 /**
  * Dialog template that has :
@@ -338,6 +339,15 @@ public abstract class ModelioDialog extends TrayDialog {
         this.buttonBar = createButtonBar(this.workArea);
         
         init();
+
+        // macOS Dark Mode: force Aqua on this dialog and hard-code readable colors
+        final Shell shell = getShell();
+        DarkModeContrastFix.forceLightShell(shell);
+        DarkModeContrastFix.apply(contents);
+        shell.addListener(SWT.Activate, event -> {
+            DarkModeContrastFix.forceLightShell(shell);
+            DarkModeContrastFix.apply(contents);
+        });
         
         // computing trim for later
         final Rectangle rect = this.messageLabel.computeTrim(0, 0, 100, 100);

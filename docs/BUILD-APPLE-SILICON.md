@@ -120,6 +120,7 @@ file "$PRODUCT/modelio.app/Contents/MacOS/modelio"
 2. **Babel FR** — fortsatt 4.18 NLS; de fleste strenger fungerer, noen kan mangle
 3. **JavaSE-1.8 BREE** — plugins kompileres med JDK 11 toolchain (Java 8 ikke tilgjengelig på arm64 Homebrew)
 4. **Code signing** — produktet er usignert; bruk `xattr -cr modelio.app` for lokal test
+5. **macOS Dark Mode** — Modelio tvinger Light appearance + cocoa CSS (`default.cocoa.css`) for lesbar dialogtekst
 
 ## Feilsøking
 
@@ -129,6 +130,8 @@ file "$PRODUCT/modelio.app/Contents/MacOS/modelio"
 | `ECLIPSE_WS not set` | `export ECLIPSE_WS=/path/to/MODELIO` |
 | Tycho-versjonskonflikt | `mvn install -N` fra repo-rot |
 | Gatekeeper blokkerer app | `xattr -cr modelio.app` |
+| Hvit tekst på hvit bakgrunn | `modelio.ini` skal ha `-Dorg.eclipse.swt.display.useSystemTheme=false`; cocoa CSS i `org.modelio.app.ui` |
+| Unable to locate a Java Runtime | Legg til `-vm` + sti til Java 11 i `modelio.ini`, eller bundle JRE |
 
 ## Videre arbeid
 
