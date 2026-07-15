@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="p2-mirror" default="mirror" basedir=".">
+  <target name="mirror">
+    <p2.mirror verbose="true"
+              source="${source}"
+              destination="${destination}"
+              ius="${ius}"
+              append="false"
+              latestversiononly="true"
+              compress="true"/>
+  </target>
+</project>

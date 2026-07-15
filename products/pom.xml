@@ -95,6 +95,7 @@
 							<formats>
 								<linux>tar.gz</linux>
 								<win32>zip</win32>
+								<macosx>tar.gz</macosx>
 							</formats>
 						</configuration>
 					</plugin>
@@ -150,6 +151,7 @@
 							<formats>
 								<linux>tar.gz</linux>
 								<win32>zip</win32>
+								<macosx>tar.gz</macosx>
 							</formats>
 						</configuration>
 					</plugin>
@@ -195,6 +197,70 @@
 									<arch>x86_64</arch>
 								</environment>
 							</environments>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>platform.mac</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>x86_64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<formats>
+								<macosx>tar.gz</macosx>
+							</formats>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>platform.mac.aarch64</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>target-platform-configuration</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<separateEnvironments>true</separateEnvironments>
+							<environments>
+								<environment>
+									<os>macosx</os>
+									<ws>cocoa</ws>
+									<arch>aarch64</arch>
+								</environment>
+							</environments>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>${tycho-groupid}</groupId>
+						<artifactId>tycho-p2-director-plugin</artifactId>
+						<version>${tycho-version}</version>
+						<configuration>
+							<formats>
+								<macosx>tar.gz</macosx>
+							</formats>
 						</configuration>
 					</plugin>
 				</plugins>

@@ -2,7 +2,7 @@
 <feature
       id="org.modelio.rcp"
       label="%featureName"
-      version="4.18.0.v20201202-1800"
+      version="4.24.0.v20220607-0700"
       provider-name="%providerName"
       plugin="org.eclipse.rcp">
 
@@ -18,43 +18,42 @@
       %license
    </license>
 
-   <includes
-         id="org.modelio.e4.rcp"
-         version="4.18.0.v20201202-1103"/>
+   <includes id="org.modelio.e4.rcp"
+         version="4.24.0.v20220530-1036"/>
 
    <plugin
          id="org.eclipse.help"
-         download-size="266"
-         install-size="687"
-         version="3.8.800.v20200525-0755"
+         download-size="270"
+         install-size="683"
+         version="3.9.100.v20210721-0601"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.ui"
          download-size="432"
          install-size="544"
-         version="3.118.100.v20201123-0719"
+         version="3.201.0.v20220124-1108"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.ui.workbench"
-         download-size="3471"
-         install-size="7434"
-         version="3.122.0.v20201122-1345"
+         download-size="3571"
+         install-size="7482"
+         version="3.125.100.v20220524-1304"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.update.configurator"
          download-size="94"
          install-size="189"
-         version="3.4.700.v20200907-1237"
+         version="3.4.800.v20210415-1314"
          unpack="false"/>
 
    <plugin
          id="org.eclipse.rcp"
-         download-size="11"
-         install-size="15"
-         version="4.18.0.v20201202-1800"
+         download-size="12"
+         install-size="17"
+         version="4.24.0.v20220607-0700"
          unpack="false"/>
 
    <plugin
@@ -65,6 +64,13 @@
          install-size="13"
          version="1.2.400.v20191217-1850"
          fragment="true"
+         unpack="false"/>
+
+   <plugin
+         id="com.ibm.icu"
+         download-size="13251"
+         install-size="29339"
+         version="67.1.0.v20200706-1749"
          unpack="false"/>
 
 </feature>

@@ -43,7 +43,7 @@
       <feature id="org.eclipse.emf.common"/>
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.help"/>
-      <feature id="org.eclipse.ecf.filetransfer.httpclient45.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient5.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.feature"/>
       <feature id="org.eclipse.ecf.core.feature"/>
       <feature id="org.eclipse.ecf.core.ssl.feature"/>
